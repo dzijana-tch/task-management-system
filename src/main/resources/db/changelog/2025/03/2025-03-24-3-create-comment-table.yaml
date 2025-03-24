@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-comment-table
+      author: charniuk
+      changes:
+        - createTable:
+            tableName: comment
+            columns:
+              - column:
+                  name: comment_id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_comment
+              - column:
+                  name: text
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_comment_author_user_id
+                    references: user(user_id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+              - column:
+                  name: task_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_comment_task_id
+                    references: task(task_id)
