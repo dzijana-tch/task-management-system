@@ -51,15 +51,16 @@ public class Task {
   @Enumerated(EnumType.STRING)
   private TaskPriority priority;
 
+  @Builder.Default
   @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   private List<Comment> comments = new ArrayList<>();
 
   @ManyToOne
-  @JoinColumn(name = "author_id", referencedColumnName = "user_id", nullable = false)
+  @JoinColumn(name = "author_id", referencedColumnName = "app_user_id", nullable = false)
   private User author;
 
   @ManyToOne
-  @JoinColumn(name = "assignee_id", referencedColumnName = "user_id")
+  @JoinColumn(name = "assignee_id", referencedColumnName = "app_user_id")
   private User assignee;
 
   @Column(name = "created_at", nullable = false)

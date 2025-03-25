@@ -14,3 +14,13 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
         ddl-auto: none
+        show-sql: true
+token:
+  signing:
+    key: 193b712dbb57d09413c783088ef70b37961170114c476a3646017a11cb044a25
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
+      hibernate: TRACE

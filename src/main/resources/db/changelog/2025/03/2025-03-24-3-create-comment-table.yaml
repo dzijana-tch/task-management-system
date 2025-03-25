@@ -22,8 +22,8 @@ databaseChangeLog:
                   type: UUID
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_comment_author_user_id
-                    references: user(user_id)
+                    foreignKeyName: fk_comment_author_app_user_id
+                    references: app_user(app_user_id)
               - column:
                   name: created_at
                   type: TIMESTAMP

@@ -35,14 +35,14 @@ databaseChangeLog:
                   type: UUID
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_task_user_author_id
-                    references: user(user_id)
+                    foreignKeyName: fk_task_app_user_author_id
+                    references: app_user(app_user_id)
               - column:
                   name: assignee_id
                   type: UUID
                   constraints:
-                    foreignKeyName: fk_task_user_assignee_id
-                    references: user(user_id)
+                    foreignKeyName: fk_task_app_user_assignee_id
+                    references: app_user(app_user_id)
               - column:
                   name: created_at
                   type: TIMESTAMP

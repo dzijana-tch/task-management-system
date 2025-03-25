@@ -36,7 +36,7 @@ public class Comment {
   private String text;
 
   @ManyToOne
-  @JoinColumn(name = "author_id", referencedColumnName = "user_id", nullable = false)
+  @JoinColumn(name = "author_id", referencedColumnName = "app_user_id", nullable = false)
   private User author;
 
   @Column(name = "created_at", nullable = false)
