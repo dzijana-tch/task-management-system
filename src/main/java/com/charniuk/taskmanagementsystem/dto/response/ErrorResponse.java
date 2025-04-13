@@ -10,5 +10,6 @@ public record ErrorResponse(
     String type,
     String message,
     Long timestamp
+) {
 
-) {}
+}

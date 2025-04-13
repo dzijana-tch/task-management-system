@@ -1,6 +1,7 @@
 package com.charniuk.taskmanagementsystem.service;
 
 import com.charniuk.taskmanagementsystem.model.User;
+import java.util.UUID;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService {
@@ -27,21 +28,16 @@ public interface UserService {
   User getByEmail(String email);
 
   /**
+   * Получение пользователя по айди
+   *
+   * @return пользователь
+   */
+  User getByUserId(UUID userId);
+
+  /**
    * Получение пользователя по имени пользователя
    *
    * @return пользователь
    */
   UserDetailsService userDetailsService();
-
-  /**
-   * Получение текущего пользователя
-   *
-   * @return текущий пользователь
-   */
-  User getCurrentUser();
-
-  /**
-   * Выдача прав администратора текущему пользователю
-   */
-  void getAdmin();
 }

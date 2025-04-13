@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Tag(name = "Аутентификация")
@@ -51,7 +52,7 @@ public interface AuthController {
       }
   )
   @PostMapping
-  JwtAuthenticationResponse signUp(SignUpRequest request);
+  ResponseEntity<JwtAuthenticationResponse> signUp(SignUpRequest request);
 
   /**
    * Авторизация пользователя
@@ -89,5 +90,5 @@ public interface AuthController {
       }
   )
   @PostMapping
-  JwtAuthenticationResponse signIn(SignInRequest request);
+  ResponseEntity<JwtAuthenticationResponse> signIn(SignInRequest request);
 }

@@ -39,15 +39,15 @@ public class Comment {
   @JoinColumn(name = "author_id", referencedColumnName = "app_user_id", nullable = false)
   private User author;
 
+  @ManyToOne
+  @JoinColumn(name = "task_id", referencedColumnName = "task_id", nullable = false)
+  private Task task;
+
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
-
-  @ManyToOne
-  @JoinColumn(name = "task_id", referencedColumnName = "task_id", nullable = false)
-  private Task task;
 
   @PrePersist
   public void setCreatedAt() {

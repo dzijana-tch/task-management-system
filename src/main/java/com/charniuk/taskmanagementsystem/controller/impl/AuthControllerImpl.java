@@ -7,6 +7,7 @@ import com.charniuk.taskmanagementsystem.dto.response.JwtAuthenticationResponse;
 import com.charniuk.taskmanagementsystem.service.AuthenticationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +22,13 @@ public class AuthControllerImpl implements AuthController {
 
   @Override
   @PostMapping("/sign-up")
-  public JwtAuthenticationResponse signUp(@RequestBody @Valid SignUpRequest request) {
-    return authenticationService.signUp(request);
+  public ResponseEntity<JwtAuthenticationResponse> signUp(@RequestBody @Valid SignUpRequest request) {
+    return ResponseEntity.ok(authenticationService.signUp(request));
   }
 
   @Override
   @PostMapping("/sign-in")
-  public JwtAuthenticationResponse signIn(@RequestBody @Valid SignInRequest request) {
-    return authenticationService.signIn(request);
+  public ResponseEntity<JwtAuthenticationResponse> signIn(@RequestBody @Valid SignInRequest request) {
+    return ResponseEntity.ok(authenticationService.signIn(request));
   }
 }

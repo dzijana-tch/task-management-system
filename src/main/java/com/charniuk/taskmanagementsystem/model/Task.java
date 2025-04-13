@@ -2,24 +2,19 @@ package com.charniuk.taskmanagementsystem.model;
 
 import com.charniuk.taskmanagementsystem.enums.TaskPriority;
 import com.charniuk.taskmanagementsystem.enums.TaskStatus;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,6 +36,7 @@ public class Task {
   @Column(name = "task_id", nullable = false)
   private UUID taskId;
 
+  @Column(nullable = false)
   private String title;
 
   private String description;
@@ -50,10 +46,6 @@ public class Task {
 
   @Enumerated(EnumType.STRING)
   private TaskPriority priority;
-
-  @Builder.Default
-  @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-  private List<Comment> comments = new ArrayList<>();
 
   @ManyToOne
   @JoinColumn(name = "author_id", referencedColumnName = "app_user_id", nullable = false)
