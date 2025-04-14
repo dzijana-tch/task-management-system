@@ -35,7 +35,8 @@ public interface UserService {
   User getByUserId(UUID userId);
 
   /**
-   * Получение пользователя по имени пользователя
+   * Сервис для загрузки пользователя по электронной почте.
+   * Используется Spring Security
    *
    * @return пользователь
    */
